@@ -2,7 +2,7 @@
 
 Build RAG-based chatbots on your data with Cloudera's RAG Studio.
 
-![RAG Studio Overview](../images/rag-studio-overview.png)
+![RAG Studio Overview](images/rag-studio-overview.png)
 
 ## Overview
 
@@ -14,7 +14,7 @@ RAG Studio helps teams build retrieval-augmented chatbots on enterprise data wit
 
 ### Customer Use Cases
 
-![Customer Use Cases](../images/customer-use-case.png)
+![Customer Use Cases](images/customer-use-case.png)
 
 Most enterprise customers have teams that vary in technical expertise. RAG Studio addresses this by enabling:
 
@@ -24,7 +24,7 @@ Most enterprise customers have teams that vary in technical expertise. RAG Studi
 
 ## Getting Started
 
-![Workflow Steps](../images/workflow-steps.png)
+![Workflow Steps](images/workflow-steps.png)
 
 RAG Studio provides a simple three-step workflow:
 
@@ -34,7 +34,7 @@ RAG Studio provides a simple three-step workflow:
 
 ## Create a Knowledge Base
 
-![Knowledge Base Setup](../images/knowledge-base-setup.png)
+![Knowledge Base Setup](images/knowledge-base-setup.png)
 
 Knowledge bases are the foundation for retrieval and answering. When creating a new knowledge base, you configure:
 
@@ -52,7 +52,7 @@ Knowledge bases are the foundation for retrieval and answering. When creating a 
 
 ### Knowledge Base Management
 
-![Knowledge Base Creation](../images/knowledge-base-creation.png)
+![Knowledge Base Creation](images/knowledge-base-creation.png)
 
 Key features:
 
@@ -60,7 +60,7 @@ Key features:
 - Configure details or customize models to suit your needs
 - Choose between manual or automatic connection setup
 
-![Knowledge Base Documents](../images/knowledge-base-documents.png)
+![Knowledge Base Documents](images/knowledge-base-documents.png)
 
 Once created, you can:
 
@@ -73,7 +73,7 @@ Once created, you can:
 
 ## Start Chatting Quickly
 
-![Create New Chat](../images/create-chat-modal.png)
+![Create New Chat](images/create-chat-modal.png)
 
 Users can start a new chat at any time. The chat creation flow allows you to:
 
@@ -84,7 +84,7 @@ Users can start a new chat at any time. The chat creation flow allows you to:
 
 ### Powered by Your Knowledge Base
 
-![Chat Interface with Answers](../images/chat-interface-answers.png)
+![Chat Interface with Answers](images/chat-interface-answers.png)
 
 Once configured, your chatbot provides:
 
@@ -96,7 +96,7 @@ Once configured, your chatbot provides:
 
 ## Advanced Features
 
-![Advanced Features](../images/advanced-features.png)
+![Advanced Features](images/advanced-features.png)
 
 RAG Studio goes beyond basic chat with powerful features:
 
@@ -119,7 +119,7 @@ RAG Studio goes beyond basic chat with powerful features:
 
 ## HITL and Monitoring
 
-![Monitoring Metrics](../images/monitoring-metrics.png)
+![Monitoring Metrics](images/monitoring-metrics.png)
 
 Built-in Human-in-the-Loop (HITL) and monitoring capabilities include:
 
@@ -147,7 +147,7 @@ Built-in Human-in-the-Loop (HITL) and monitoring capabilities include:
 
 ### Flexible
 
-![Why RAG Studio - Flexible and Fast](../images/why-flexible-fast.png)
+![Why RAG Studio - Flexible and Fast](images/why-flexible-fast.png)
 
 **Any document, any user**
 
@@ -165,7 +165,7 @@ Built-in Human-in-the-Loop (HITL) and monitoring capabilities include:
 
 ### Smart
 
-![Why RAG Studio - Smart and Custom](../images/why-smart-custom.png)
+![Why RAG Studio - Smart and Custom](images/why-smart-custom.png)
 
 **HyDE? O-RAG?**
 
