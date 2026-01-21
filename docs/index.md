@@ -1,9 +1,8 @@
-# RAG Agent Studios
+# RAG & Agent Studios
 
-Welcome to the documentation site for RAG Agent Studios.
+Welcome to the documentation site for RAG & Agent Studios.
 
-## Getting Started
+## Documentations
 
-- Add pages in the `docs/` folder
-- Update navigation in `mkdocs.yml`
-- Run `mkdocs serve` to preview locally
+  - **[RAG Studio](RAG_studio.md)** - Build RAG-based chatbots on your data with     
+  Cloudera's RAG Studio       
