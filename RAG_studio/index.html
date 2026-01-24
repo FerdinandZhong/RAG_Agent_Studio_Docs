@@ -1,0 +1,3433 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Cloudera RAG Agent Studio - Build RAG-based chatbots on your data.">
+      
+      
+      
+        <link rel="canonical" href="https://ferdinandzhong.github.io/RAG_Agent_Studio_Docs/RAG_studio/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>RAG Studio - RAG Agent Studio Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rag-studio" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RAG Agent Studio Docs" class="md-header__button md-logo" aria-label="RAG Agent Studio Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RAG Agent Studio Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RAG Studio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FerdinandZhong/RAG_Agent_Studio_Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FerdinandZhong/RAG_Agent_Studio_Docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  RAG Studio
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RAG Agent Studio Docs" class="md-nav__button md-logo" aria-label="RAG Agent Studio Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RAG Agent Studio Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FerdinandZhong/RAG_Agent_Studio_Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FerdinandZhong/RAG_Agent_Studio_Docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Studio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Studio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customer-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customer Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quickstart-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quickstart Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quickstart Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Open the App
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Create a Knowledge Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-upload-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Upload Documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-a-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Start a Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tune-chat-settings-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Tune Chat Settings (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-use-tools-beta-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Use Tools (Beta, Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-review-analytics-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) Review Analytics (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-ui-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed UI Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed UI Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigation-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigation Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-check-and-redirection-cml-caii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Check and Redirection (CML + CAII)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Knowledge Base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a Knowledge Base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knowledge-base-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Knowledge Base Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Knowledge Base Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-knowledge-base-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Knowledge Base Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-knowledge-base-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Knowledge Base Tabs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-new-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start a New Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ask Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-controls-and-quick-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input Controls and Quick Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-knowledge-bases-in-a-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Knowledge Bases in a Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inference-model-quick-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inference Model Quick Switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-documents-to-the-active-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload Documents to the Active Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggested-questions-and-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested Questions and Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-settings-session-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chat Settings (Session-Level)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools (Beta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#studio-settings-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Studio Settings Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#studio-settings-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Studio Settings Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Studio Settings Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processing-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processing Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applying Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-tools-from-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add Tools from the UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-chatting-quickly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start Chatting Quickly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Start Chatting Quickly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powered-by-your-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Powered by Your Knowledge Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantic-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Visualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-quality-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Quality Alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-rewriting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question Rewriting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hitl-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HITL and Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HITL and Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-rag-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why RAG Studio?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why RAG Studio?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flexible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flexible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-rag-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced RAG Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced RAG Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-metadata-augmented-rag-the-contextual-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Metadata Augmented RAG: The "Contextual Filter"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-o-rag-ontologicalontology-grounded-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O-RAG (Ontological/Ontology-Grounded RAG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hyde-hypothetical-document-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. HyDE (Hypothetical Document Embeddings)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chat-flow-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chat Flow Sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rag-studio-changelog-release1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG Studio Changelog (release/1)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RAG Studio Changelog (release/1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recent-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recent Releases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recent Releases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1310" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.31.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1300" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.30.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1290" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.29.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1281" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.28.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.28.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1270" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.27.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1260" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.26.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1250" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.25.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1241" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.24.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1240" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.24.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1230" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.23.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.22.2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.22.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1220" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.22.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1210" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.21.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1200" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.20.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1190" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.19.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1180" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.18.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earlier-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Earlier Releases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customer-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customer Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quickstart-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quickstart Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quickstart Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Open the App
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Create a Knowledge Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-upload-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Upload Documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-a-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Start a Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tune-chat-settings-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Tune Chat Settings (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-use-tools-beta-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Use Tools (Beta, Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-review-analytics-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) Review Analytics (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-ui-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed UI Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed UI Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigation-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigation Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-check-and-redirection-cml-caii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Check and Redirection (CML + CAII)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Knowledge Base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a Knowledge Base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knowledge-base-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Knowledge Base Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Knowledge Base Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-knowledge-base-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Knowledge Base Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-knowledge-base-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Knowledge Base Tabs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-new-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start a New Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ask Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-controls-and-quick-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input Controls and Quick Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-knowledge-bases-in-a-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Knowledge Bases in a Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inference-model-quick-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inference Model Quick Switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-documents-to-the-active-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload Documents to the Active Chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggested-questions-and-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested Questions and Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-settings-session-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chat Settings (Session-Level)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools (Beta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#studio-settings-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Studio Settings Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#studio-settings-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Studio Settings Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Studio Settings Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processing-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processing Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applying Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-tools-from-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add Tools from the UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-chatting-quickly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start Chatting Quickly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Start Chatting Quickly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powered-by-your-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Powered by Your Knowledge Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantic-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Visualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-quality-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Quality Alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-rewriting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question Rewriting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hitl-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HITL and Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HITL and Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-rag-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why RAG Studio?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why RAG Studio?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flexible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flexible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-rag-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced RAG Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced RAG Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-metadata-augmented-rag-the-contextual-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Metadata Augmented RAG: The "Contextual Filter"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-o-rag-ontologicalontology-grounded-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O-RAG (Ontological/Ontology-Grounded RAG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hyde-hypothetical-document-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. HyDE (Hypothetical Document Embeddings)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chat-flow-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chat Flow Sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rag-studio-changelog-release1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG Studio Changelog (release/1)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RAG Studio Changelog (release/1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recent-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recent Releases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recent Releases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1310" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.31.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1300" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.30.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1290" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.29.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1281" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.28.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.28.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1270" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.27.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1260" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.26.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1250" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.25.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1241" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.24.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1240" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.24.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1230" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.23.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.22.2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.22.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1220" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.22.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1210" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.21.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1200" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.20.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1190" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.19.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1180" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.18.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earlier-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Earlier Releases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="rag-studio">RAG Studio</h1>
+<p>Build RAG-based chatbots on your data with Cloudera's RAG Studio.</p>
+<p><img alt="RAG Studio Overview" src="../extra_rag_studio_docs/images/rag-studio-overview.png" /></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#customer-use-cases">Customer Use Cases</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#quickstart-guide">Quickstart Guide</a></li>
+<li><a href="#1-open-the-app">1) Open the App</a></li>
+<li><a href="#2-create-a-knowledge-base">2) Create a Knowledge Base</a></li>
+<li><a href="#3-upload-documents">3) Upload Documents</a></li>
+<li><a href="#4-start-a-chat">4) Start a Chat</a></li>
+<li><a href="#5-tune-chat-settings-optional">5) Tune Chat Settings</a></li>
+<li><a href="#6-use-tools-beta-optional">6) Use Tools</a></li>
+<li><a href="#7-review-analytics-optional">7) Review Analytics</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#detailed-ui-guide">Detailed UI Guide</a></li>
+<li><a href="#navigation-overview">Navigation Overview</a></li>
+<li><a href="#configuration-check-and-redirection-cml--caii">Configuration Check and Redirection</a></li>
+<li><a href="#knowledge-bases">Knowledge Bases</a></li>
+<li><a href="#chats">Chats</a></li>
+<li><a href="#analytics">Analytics</a></li>
+<li><a href="#settings">Settings</a></li>
+<li><a href="#advanced-features">Advanced Features</a></li>
+<li><a href="#semantic-visualization">Semantic Visualization</a></li>
+<li><a href="#automated-quality-alerts">Automated Quality Alerts</a></li>
+<li><a href="#question-rewriting">Question Rewriting</a></li>
+<li><a href="#hitl-and-monitoring">HITL and Monitoring</a></li>
+<li><a href="#why-rag-studio">Why RAG Studio?</a></li>
+<li><a href="#flexible">Flexible</a></li>
+<li><a href="#fast">Fast</a></li>
+<li><a href="#smart">Smart</a></li>
+<li><a href="#custom">Custom</a></li>
+<li><a href="#advanced-rag-techniques">Advanced RAG Techniques</a></li>
+<li><a href="#1-metadata-augmented-rag-the-contextual-filter">1. Metadata Augmented RAG</a></li>
+<li><a href="#2-o-rag-ontologicalontology-grounded-rag">2. O-RAG</a></li>
+<li><a href="#3-hyde-hypothetical-document-embeddings">3. HyDE</a></li>
+<li><a href="#technical-architecture">Technical Architecture</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>RAG Studio helps teams build retrieval-augmented chatbots on enterprise data with a guided, UI-first workflow. It provides:</p>
+<ul>
+<li>A single studio entry point to build RAG-based chatbots</li>
+<li>Seamless progression from knowledge base creation to chat interaction</li>
+<li>Support for both rapid prototyping and production-grade enterprise use cases</li>
+</ul>
+<h3 id="customer-use-cases">Customer Use Cases</h3>
+<p><img alt="Customer Use Cases" src="../extra_rag_studio_docs/images/customer-use-case.png" /></p>
+<p>Most enterprise customers have teams that vary in technical expertise. RAG Studio addresses this by enabling:</p>
+<ul>
+<li>Non-technical users to build chatbots for various business needs</li>
+<li>ML teams to rapidly prototype and iterate on models</li>
+<li>Enterprises to deploy secure, scalable AI solutions on their own data</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p><img alt="Workflow Steps" src="../extra_rag_studio_docs/images/workflow-steps.png" /></p>
+<p>RAG Studio provides a simple three-step workflow:</p>
+<ol>
+<li><strong>Create Your Knowledge Base</strong> - Set up the foundation for your chatbot by configuring how documents are processed and indexed</li>
+<li><strong>Upload Your Documents</strong> - Add content through drag-and-drop or API integration</li>
+<li><strong>Ask Questions, Get Answers</strong> - Start chatting immediately with AI-powered responses based on your data</li>
+</ol>
+<hr />
+<h2 id="quickstart-guide">Quickstart Guide</h2>
+<p>This quickstart guide will walk you through setting up and using RAG Studio for the first time.</p>
+<h3 id="1-open-the-app">1) Open the App</h3>
+<p>Landing Page:</p>
+<p><img alt="landing-page" src="../extra_rag_studio_docs/docs/images/landing-page.png" /></p>
+<p><strong>Note on Configuration (CML + CAII):</strong></p>
+<ul>
+<li>If your CML deployment and CAII (Cloudera AI Inference) endpoints (LLM, Embeddings, Rerankers) are in the same environment, the app validates Studio configuration with CAII.</li>
+<li>If no valid configuration is detected, you will be redirected to Settings to configure the Studio.</li>
+<li>For a breakdown of each option, see <a href="#studio-settings-configurations">Studio Settings Configurations</a> in the Detailed UI Guide.</li>
+</ul>
+<p><img alt="settings-no-data" src="../extra_rag_studio_docs/docs/images/settings-studio-settings-no-data.png" /></p>
+<h3 id="2-create-a-knowledge-base">2) Create a Knowledge Base</h3>
+<ol>
+<li>Go to <strong>Knowledge Bases</strong> and click <strong>Create Knowledge Base</strong>.</li>
+<li>Fill in the required fields: Name, Chunk Size, Embedding Model.</li>
+<li>Optional: Select a Summarization Model.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p><img alt="create-kb" src="../extra_rag_studio_docs/docs/images/rag-studio-kb-create-kb.png" /></p>
+<h3 id="3-upload-documents">3) Upload Documents</h3>
+<ol>
+<li>Open the knowledge base and navigate to the <strong>Manage</strong> tab.</li>
+<li>Drag-and-drop or select files, then click <strong>Start Upload</strong>.</li>
+<li>Confirm the uploaded files appear in the table.</li>
+</ol>
+<p><strong>Supported Document Formats:</strong></p>
+<ul>
+<li><strong>Documents</strong>: PDF (<code>.pdf</code>), Word (<code>.docx</code>), Markdown (<code>.md</code>), Text (<code>.txt</code>), HTML (<code>.html</code>, with advanced PDF processing)</li>
+<li><strong>Spreadsheets</strong>: Excel (<code>.xlsx</code>, <code>.xlsm</code>, <code>.xlsb</code>, <code>.xls</code>), OpenDocument (<code>.ods</code>), CSV (<code>.csv</code>)</li>
+<li><strong>Presentations</strong>: PowerPoint (<code>.pptx</code>, <code>.pptm</code>)</li>
+<li><strong>Data</strong>: JSON (<code>.json</code>)</li>
+<li><strong>Images</strong>: JPEG (<code>.jpg</code>, <code>.jpeg</code>), PNG (<code>.png</code>)</li>
+</ul>
+<p><img alt="manage-tab" src="../extra_rag_studio_docs/docs/images/rag-studio-kb-manage-page.png" /></p>
+<h3 id="4-start-a-chat">4) Start a Chat</h3>
+<ol>
+<li>Go to <strong>Chats</strong>.</li>
+<li>In the input box, type a question.</li>
+<li>Send the message (<strong>Enter</strong> or click send). If no session exists, it will be created automatically on first send.</li>
+<li><strong>Optional before sending:</strong> Click <strong>Chat Settings</strong> to open the Create Session modal and preselect knowledge base(s) and response model.</li>
+</ol>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>Use the KB selector (when creating a new session) next to the input to pick knowledge bases.</li>
+<li>Use the model selector next to the input to choose the response model.</li>
+<li>Toggle the database icon to include or exclude the knowledge base per message.</li>
+<li>Use the stop icon to cancel streaming.</li>
+<li>Click suggested questions to continue the conversation.</li>
+</ul>
+<p><strong>Suggested Questions:</strong></p>
+<ul>
+<li>If a session is created with no messages, you'll see Suggested Questions in the chat body (KB-aware when KBs are selected; default list if none).</li>
+<li>After you send a message, follow-up suggestions appear after the response.</li>
+</ul>
+<p><img alt="chat" src="../extra_rag_studio_docs/docs/images/rag-studio-chats-page.png" /></p>
+<p><img alt="follow-up-question" src="../extra_rag_studio_docs/docs/images/suggested-questions-follow-up.png" /></p>
+<h3 id="5-tune-chat-settings-optional">5) Tune Chat Settings (Optional)</h3>
+<ol>
+<li>Click <strong>Chat Settings</strong> in the chat header.</li>
+<li>Adjust: session name, knowledge bases, response model, rerank model, max docs, and advanced options (Tool Calling, HyDE, Summary Filter, Disable Streaming).</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p><img alt="chat-settings" src="../extra_rag_studio_docs/docs/images/chat-settings-update.png" /></p>
+<h3 id="6-use-tools-beta-optional">6) Use Tools (Beta, Optional)</h3>
+<ul>
+<li>Enable <strong>Tool Calling</strong> from Chat Settings.</li>
+<li>If Tool Calling is enabled, click the wrench icon and select tools.</li>
+<li>Manage available tools in <strong>Settings → Tools</strong>.</li>
+</ul>
+<p><img alt="select-tool-modal" src="../extra_rag_studio_docs/docs/images/chat-select-tool-modal.png" /></p>
+<h3 id="7-review-analytics-optional">7) Review Analytics (Optional)</h3>
+<ol>
+<li>Open <strong>Analytics</strong>.</li>
+<li>Review App Metrics and Session Metrics.</li>
+<li>Filter by model, reranker (or None), summary filter usage, HyDE, knowledge base usage, and project.</li>
+</ol>
+<p><img alt="analytics-filter" src="../extra_rag_studio_docs/docs/images/rag-studio-analytics-page.png" /></p>
+<p><img alt="analytics-charts" src="../extra_rag_studio_docs/docs/images/rag-studio-analytics-charts.png" /></p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+<li><strong>No embedding models available</strong> when creating a knowledge base → Configure models in <strong>Settings → Model Configuration</strong>.</li>
+<li><strong>Upload errors</strong> → Check file size/type and retry.</li>
+<li><strong>Chat not using knowledge base</strong> → Ensure the database icon is filled (included) or select KBs for the session.</li>
+</ul>
+<p><img alt="kb-selected" src="../extra_rag_studio_docs/docs/images/chat-input-kb-selected.png" /></p>
+<p><img alt="kb-unselected" src="../extra_rag_studio_docs/docs/images/chat-input-kb-unselected.png" /></p>
+<hr />
+<h2 id="detailed-ui-guide">Detailed UI Guide</h2>
+<p>This section provides comprehensive guidance on using all features in RAG Studio's user interface.</p>
+<h3 id="navigation-overview">Navigation Overview</h3>
+<ul>
+<li><strong>Chats</strong>: Ask questions, manage sessions, upload files to the active chat, and control models/tools.</li>
+<li><strong>Knowledge Bases</strong>: Create and manage knowledge bases, upload documents, and configure indexing.</li>
+<li><strong>Analytics</strong>: Review app and session metrics with filters.</li>
+<li><strong>Settings</strong>: Configure studio settings, models, and tools.</li>
+</ul>
+<p><img alt="chat" src="../extra_rag_studio_docs/docs/images/rag-studio-chats-page.png" /></p>
+<h3 id="configuration-check-and-redirection-cml-caii">Configuration Check and Redirection (CML + CAII)</h3>
+<ul>
+<li>If the CML deployment and CAII (Cloudera AI Inference) endpoints for LLM, Embeddings, and/or Rerankers are in the same environment, the app validates Studio configuration with CAII.</li>
+<li>If there is no valid configuration, the app will redirect you to the Settings page to configure the Studio.</li>
+</ul>
+<p><img alt="settings-no-data" src="../extra_rag_studio_docs/docs/images/settings-studio-settings-no-data.png" /></p>
+<h2 id="create-a-knowledge-base">Create a Knowledge Base</h2>
+<p><img alt="Knowledge Base Setup" src="../extra_rag_studio_docs/images/knowledge-base-setup.png" /></p>
+<p>Knowledge bases are the foundation for retrieval and answering. When creating a new knowledge base, you configure:</p>
+<h3 id="core-settings">Core Settings</h3>
+<ul>
+<li><strong>Name</strong>: Identifier for your knowledge base (e.g., <code>COE</code>)</li>
+<li><strong>Chunk size (tokens)</strong>: <code>512</code> (controls how documents are split)</li>
+<li><strong>Embedding model</strong>: <code>Text Embedding Ada 002</code> (converts text to vector representations)</li>
+<li><strong>Summarization model</strong>: <code>OpenAI GPT-4o</code> (generates summaries when needed)</li>
+</ul>
+<h3 id="advanced-options">Advanced Options</h3>
+<ul>
+<li><strong>Distance metric</strong>: <code>Cosine</code> (for similarity search)</li>
+<li><strong>Chunk overlap</strong>: <code>10%</code> (ensures context continuity between chunks)</li>
+</ul>
+<h3 id="knowledge-base-management">Knowledge Base Management</h3>
+<p><img alt="Knowledge Base Creation" src="../extra_rag_studio_docs/images/knowledge-base-creation.png" /></p>
+<p>Key features:</p>
+<ul>
+<li>Any authorized user can create a knowledge base</li>
+<li>Configure details or customize models to suit your needs</li>
+<li>Choose between manual or automatic connection setup</li>
+</ul>
+<p><img alt="Knowledge Base Documents" src="../extra_rag_studio_docs/images/knowledge-base-documents.png" /></p>
+<p>Once created, you can:</p>
+<ul>
+<li>Drag and drop data for indexing with built-in and customizable vectorDB</li>
+<li>Add documents via CDF or API in real time</li>
+<li>Make new content available to chatbots instantly</li>
+<li>View document summaries and metadata</li>
+</ul>
+<p><strong>Documents can be added via CDF or API in real time and made available to your chatbots instantly.</strong></p>
+<h4 id="edit-knowledge-base-settings">Edit Knowledge Base Settings</h4>
+<ol>
+<li>Open a knowledge base and navigate to <strong>Index Settings</strong>.</li>
+<li>Update fields such as name, models, availability, etc.</li>
+<li>Click <strong>Update</strong> to save. You can also delete the knowledge base from this page.</li>
+</ol>
+<p><img alt="kb-index-settings" src="../extra_rag_studio_docs/docs/images/rag-studio-kb-index-settings.png" /></p>
+<h4 id="other-knowledge-base-tabs">Other Knowledge Base Tabs</h4>
+<ul>
+<li><strong>Connections</strong>: Configure external connectors (if applicable).</li>
+<li><strong>Metrics</strong>: Knowledge base–level statistics.</li>
+<li><strong>Visualize</strong>: Explore vector graph visualization.</li>
+</ul>
+<p><img alt="kb-connections" src="../extra_rag_studio_docs/docs/images/rag-studio-kb-connections-page.png" /></p>
+<hr />
+<h2 id="chats">Chats</h2>
+<h3 id="start-a-new-chat">Start a New Chat</h3>
+<p><img alt="chats-page" src="../extra_rag_studio_docs/docs/images/rag-studio-chats-page.png" /></p>
+<p>Type a question and send. If no session exists, a new session is created automatically on your first send.</p>
+<p><strong>Optional:</strong> Before sending, click <strong>Chat Settings</strong> to open the Create Session modal and preselect knowledge base(s) and the response synthesizer model.</p>
+<p><img alt="create-session" src="../extra_rag_studio_docs/docs/images/chat-create-session.png" /></p>
+<h3 id="ask-questions">Ask Questions</h3>
+<ul>
+<li>Use the input box at the bottom. Press <strong>Enter</strong> to send; <strong>Shift+Enter</strong> inserts a newline.</li>
+<li>Click the send icon to submit.</li>
+<li>Click the stop icon to cancel a streaming response.</li>
+<li>If knowledge bases exist, the placeholder reads "Ask a question"; otherwise, it reads "Chat with the LLM".</li>
+</ul>
+<h3 id="input-controls-and-quick-settings">Input Controls and Quick Settings</h3>
+<p><img alt="input-bar" src="../extra_rag_studio_docs/docs/images/chat-input-bar.png" /></p>
+<ul>
+<li><strong>Knowledge Base Selector</strong>: When no session exists, pick one or more knowledge bases next to the input before sending the first message.</li>
+<li><strong>Inference Model Selector</strong>: Choose the response model next to the input. If a session exists, this updates the session; if not, it's used for the new session.</li>
+<li>After a session is created:</li>
+<li><strong>Tools</strong> <img alt="Wrench Icon" src="../extra_rag_studio_docs/docs/images/chat-tool-icon.png" />: When Tool Calling is enabled, click to open Tool Selection and enable/disable tools for the session.</li>
+<li><strong>Include/Exclude Knowledge Base Toggle</strong> <img alt="KB Icon" src="../extra_rag_studio_docs/docs/images/chat-kb-icon.png" />: Per-message control to include or exclude knowledge base retrieval.</li>
+<li><strong>Chat Documents</strong> <img alt="Chat Documents Icon" src="../extra_rag_studio_docs/docs/images/chat-doc-icon.png" />: Upload docs into the session to be used as context.</li>
+<li><strong>Stop Streaming Button</strong>: Appears while a response is streaming.</li>
+</ul>
+<h3 id="use-knowledge-bases-in-a-chat">Use Knowledge Bases in a Chat</h3>
+<ul>
+<li>Toggle the database icon to include or exclude the knowledge base for the current message.</li>
+</ul>
+<p><img alt="kb-selected" src="../extra_rag_studio_docs/docs/images/chat-input-kb-selected.png" /></p>
+<p><img alt="kb-unselected" src="../extra_rag_studio_docs/docs/images/chat-input-kb-unselected.png" /></p>
+<ul>
+<li>For new sessions, you can optionally select knowledge base(s) next to the input before sending the first message.</li>
+</ul>
+<p><img alt="new-chat-kb-select-dd" src="../extra_rag_studio_docs/docs/images/chat-input-add-kb.png" /></p>
+<h3 id="inference-model-quick-switch">Inference Model Quick Switch</h3>
+<ul>
+<li>Next to the input, change the model on the fly. If the new model supports tool calling, the session setting updates accordingly.</li>
+</ul>
+<p><img alt="inference-model" src="../extra_rag_studio_docs/docs/images/chat-inference-model.png" /></p>
+<h3 id="upload-documents-to-the-active-chat">Upload Documents to the Active Chat</h3>
+<ul>
+<li>Drag files anywhere in the chat area; a drop overlay will appear. Drop to upload into the associated knowledge base for the session.</li>
+<li>Alternatively, open the <strong>Documents</strong> control (paperclip/folder icon) near the input to manage uploads.</li>
+<li>Supports the same document formats as knowledge base uploads (PDF, Word, Excel, PowerPoint, CSV, JSON, Markdown, Text, Images, and more).</li>
+</ul>
+<p><img alt="documents-icon" src="../extra_rag_studio_docs/docs/images/chat-documents-icon.png" /></p>
+<p><img alt="documents-modal" src="../extra_rag_studio_docs/docs/images/chat-documents-modal.png" /></p>
+<h3 id="suggested-questions-and-sources">Suggested Questions and Sources</h3>
+<ul>
+<li><strong>Empty Chat</strong>: When a session exists with no messages, Suggested Questions cards appear in the chat body. They are generated from the selected knowledge base(s). If none are selected or available, a default starter list is shown.</li>
+<li><strong>After Messages</strong>: Follow-up suggestions appear near the input, tailored to the current session. If no knowledge base is in use, a default list is shown.</li>
+<li><strong>Sources and Feedback</strong>: Each answer shows citations ("Sources") and optional evaluations (e.g., relevance, faithfulness). Use the copy and rating/feedback controls under each answer.</li>
+</ul>
+<p><img alt="suggested-kb" src="../extra_rag_studio_docs/docs/images/suggested-questions-kb.png" /></p>
+<p><img alt="suggested-default" src="../extra_rag_studio_docs/docs/images/suggested-questions-default.png" /></p>
+<p><img alt="suggested-follow-up" src="../extra_rag_studio_docs/docs/images/suggested-questions-follow-up.png" /></p>
+<h3 id="chat-settings-session-level">Chat Settings (Session-Level)</h3>
+<p>Click <strong>Chat Settings</strong> in the header to modify the active session:</p>
+<ul>
+<li>Rename session</li>
+<li>Select knowledge base(s)</li>
+<li>Choose response synthesizer model</li>
+<li>Optional reranking model</li>
+<li>Maximum number of documents</li>
+<li>Advanced options:</li>
+<li>Tool Calling (beta)</li>
+<li>HyDE</li>
+<li>Summary-based filtering</li>
+<li>Disable streaming</li>
+</ul>
+<p><img alt="chat-settings" src="../extra_rag_studio_docs/docs/images/chat-settings-update.png" /></p>
+<h3 id="tools-beta">Tools (Beta)</h3>
+<ul>
+<li>If Tool Calling is enabled, click the wrench icon (<img alt="tools-icon" src="../extra_rag_studio_docs/docs/images/chat-tool-icon.png" />) to open Tool Selection. Check tools to enable them for the session.</li>
+<li>Available tools are managed in <strong>Settings → Tools</strong>.</li>
+</ul>
+<p><img alt="tools-modal" src="../extra_rag_studio_docs/docs/images/chat-select-tool-modal.png" /></p>
+<hr />
+<h2 id="analytics">Analytics</h2>
+<p>Use the Analytics page to view:</p>
+<ul>
+<li><strong>App Metrics</strong>: Overall usage and health metrics.</li>
+<li><strong>Session Metrics</strong>: Filter by response model, rerank model (or None), summary filter usage, HyDE, knowledge base usage, and project.</li>
+</ul>
+<p><img alt="analytics-filter" src="../extra_rag_studio_docs/docs/images/rag-studio-analytics-page.png" /></p>
+<p><img alt="analytics-charts" src="../extra_rag_studio_docs/docs/images/rag-studio-analytics-charts.png" /></p>
+<hr />
+<h2 id="settings">Settings</h2>
+<h3 id="studio-settings-overview">Studio Settings Overview</h3>
+<ul>
+<li><strong>Studio Settings</strong>: Environment and studio configuration.</li>
+</ul>
+<p><img alt="settings-studio" src="../extra_rag_studio_docs/docs/images/settings-studio-settings-data.png" /></p>
+<ul>
+<li><strong>Model Configuration</strong>: Manage embedding and LLM models used across the app.</li>
+</ul>
+<p><img alt="settings-models" src="../extra_rag_studio_docs/docs/images/settings-model-configuration.png" /></p>
+<ul>
+<li><strong>Tools</strong>: Enable and configure tools available for Tool Calling.</li>
+</ul>
+<p><img alt="settings-tools" src="../extra_rag_studio_docs/docs/images/settings-tools-management.png" /></p>
+<h3 id="studio-settings-configurations">Studio Settings Configurations</h3>
+<p>Use <strong>Settings → Studio Settings</strong> to configure the application. Some fields are only editable when there are no chats or knowledge bases.</p>
+<h4 id="processing-settings">Processing Settings</h4>
+<ul>
+<li><strong>Enhanced PDF Processing</strong>: Improves text extraction for PDFs; requires a GPU and at least 16 GB RAM. Disabled with a warning if resources are insufficient.</li>
+</ul>
+<h4 id="metadata-database">Metadata Database</h4>
+<ul>
+<li><strong>Embedded (H2)</strong>: Default metadata database.</li>
+<li><strong>External PostgreSQL</strong>: Provide JDBC URL, Username, and Password. Use <strong>Test Connection</strong> to validate; success/failure indicators are shown inline.</li>
+</ul>
+<p><img alt="external-postgres" src="../extra_rag_studio_docs/docs/images/settings-metadatadb-external-postgres.png" /></p>
+<h4 id="file-storage">File Storage</h4>
+<ul>
+<li><strong>Project Filesystem (Local)</strong>: Stores files in the project filesystem.</li>
+<li><strong>AWS S3</strong>: Set Document Bucket Name and optional Bucket Prefix.</li>
+<li><strong>Store Document Summaries in S3</strong>: Toggle when summarization is enabled for knowledge bases.</li>
+<li><strong>Store Chat History in S3</strong>: Toggle to persist chat history in S3.</li>
+</ul>
+<p><img alt="file-storage-s3" src="../extra_rag_studio_docs/docs/images/settings-file-storage-S3.png" /></p>
+<h4 id="vector-database">Vector Database</h4>
+<ul>
+<li><strong>Qdrant</strong>: Embedded Qdrant (default).</li>
+<li><strong>Cloudera Semantic Search (OpenSearch)</strong>: Set Endpoint, Namespace (alphanumeric), optional Username/Password. Supported up to OpenSearch 2.19.3.</li>
+</ul>
+<p><img alt="vectordb-css" src="../extra_rag_studio_docs/docs/images/settings-vectordb-css.png" /></p>
+<ul>
+<li><strong>ChromaDB</strong>: Set Host (URL or hostname), optional Port, Token, Tenant, Database. SSL is inferred from <code>https://</code> in the host.</li>
+</ul>
+<p><img alt="vectordb-chromadb" src="../extra_rag_studio_docs/docs/images/settings-vectordb-chromadb.png" /></p>
+<h4 id="model-provider">Model Provider</h4>
+<p>Choose a provider (e.g., CAII, OpenAI, Azure, Bedrock). Credentials are set under Authentication.</p>
+<ul>
+<li>
+<p><strong>CAII</strong></p>
+</li>
+<li>
+<p>If there are no hosted CAII endpoints in the same environment, you can optionally provide one that has hosted endpoints along with the CDP Auth Token.</p>
+</li>
+</ul>
+<p><img alt="model-provider-caii" src="../extra_rag_studio_docs/docs/images/settings-model-provider-caii.png" /></p>
+<ul>
+<li>
+<p><strong>OpenAI</strong></p>
+</li>
+<li>
+<p><strong>API Key</strong>: Provide your OpenAI API Key for authentication.</p>
+</li>
+<li><strong>Base URL</strong>: Optional custom base URL for OpenAI-compatible endpoints.</li>
+</ul>
+<p><img alt="model-provider-openai" src="../extra_rag_studio_docs/docs/images/settings-model-provider-open-ai.png" /></p>
+<ul>
+<li>
+<p><strong>Azure OpenAI</strong></p>
+</li>
+<li>
+<p><strong>API Key</strong>: Your Azure OpenAI service API key.</p>
+</li>
+<li><strong>Endpoint</strong>: The Azure OpenAI service endpoint URL.</li>
+<li><strong>API Version</strong>: The API version to use (e.g., 2024-02-01).</li>
+</ul>
+<p><img alt="model-provider-azure" src="../extra_rag_studio_docs/docs/images/settings-model-provider-azure-openai.png" /></p>
+<ul>
+<li>
+<p><strong>AWS Bedrock</strong></p>
+</li>
+<li>
+<p><strong>Region</strong>: AWS region where your Bedrock models are hosted.</p>
+</li>
+<li>Access credentials are configured in the Authentication section.</li>
+</ul>
+<p><img alt="model-provider-bedrock" src="../extra_rag_studio_docs/docs/images/settings-model-provider-aws-bedrock.png" /></p>
+<h4 id="authentication">Authentication</h4>
+<ul>
+<li><strong>AWS</strong>: Region, Access Key ID, Secret Access Key (visible when using Bedrock/S3/Summary S3).</li>
+<li><strong>Azure</strong>: Azure OpenAI Key (when Azure is selected).</li>
+<li><strong>OpenAI</strong>: OpenAI API Key (when OpenAI is selected).</li>
+<li><strong>CAII</strong>: CDP Auth Token may be required depending on the environment.</li>
+</ul>
+<h4 id="applying-changes">Applying Changes</h4>
+<ul>
+<li>Click <strong>Submit</strong> to review and confirm. A restart modal will guide you through applying changes.</li>
+</ul>
+<p><img alt="update-settings-modal" src="../extra_rag_studio_docs/docs/images/settings-update-settings-modal.png" /></p>
+<p><img alt="updates-settings-progress" src="../extra_rag_studio_docs/docs/images/settings-update-settings-progress-modal.png" /></p>
+<ul>
+<li>If chats or knowledge bases exist, a warning will appear and certain settings are disabled until data is removed.</li>
+</ul>
+<p><img alt="settings-studio" src="../extra_rag_studio_docs/docs/images/settings-studio-settings-data.png" /></p>
+<h3 id="add-tools-from-the-ui">Add Tools from the UI</h3>
+<ol>
+<li>Go to <strong>Settings → Tools</strong>.</li>
+<li>Click <strong>Add Tool</strong>.</li>
+<li>In the modal, provide:</li>
+<li><strong>Internal Name</strong> (alphanumeric and dashes)</li>
+<li><strong>Display Name</strong></li>
+<li><strong>Description</strong> : (Recommended) Please a provide a few lines detailing the use of the tool as it helps the LLM understand how to use the tool</li>
+<li>
+<p>Choose <strong>Tool Type</strong>:</p>
+</li>
+<li>
+<p><strong>Command-based</strong>: Enter Command, optional Arguments (comma-separated), and add Environment Variables (key/value) as needed.</p>
+<ul>
+<li>For example, to add Serper Search &amp; Scrape MCP:
+   ```
+   Command: npx
+   Arguments: -y, serper-search-scrape-mcp-server
+   Environment Variables:<ul>
+<li>SERPER_API_KEY: your_api_key_here
+   ```</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img alt="tools-add-command" src="../extra_rag_studio_docs/docs/images/settings-add-tools-command.png" /></p>
+<ul>
+<li><strong>URL-based</strong>: Enter one or more URLs (comma-separated). (Not recommended)</li>
+</ul>
+<p><img alt="tools-add-url" src="../extra_rag_studio_docs/docs/images/settings-add-tools-url.png" /></p>
+<ol>
+<li>Click <strong>Add</strong>. The tool appears in the Available Tools table (you can delete it later).</li>
+<li>To use a tool in chat, enable <strong>Tool Calling</strong> in Chat Settings, then click the wrench icon in the input bar and select the tool(s).</li>
+</ol>
+<hr />
+<h2 id="start-chatting-quickly">Start Chatting Quickly</h2>
+<p><img alt="Create New Chat" src="../extra_rag_studio_docs/images/create-chat-modal.png" /></p>
+<p>Users can start a new chat at any time. The chat creation flow allows you to:</p>
+<ul>
+<li>Select a knowledge base (e.g., <code>Animal Research</code>)</li>
+<li>Choose a response synthesizer model (e.g., <code>Llama 3.1 8B Instruct v1</code>)</li>
+<li>Pick a reranking model (e.g., <code>Cohere Rerank v3.5</code>)</li>
+<li>Configure the maximum number of documents to retrieve</li>
+</ul>
+<h3 id="powered-by-your-knowledge-base">Powered by Your Knowledge Base</h3>
+<p><img alt="Chat Interface with Answers" src="../extra_rag_studio_docs/images/chat-interface-answers.png" /></p>
+<p>Once configured, your chatbot provides:</p>
+<ul>
+<li>Answers powered by your enterprise knowledge base</li>
+<li>Source citations showing which documents were used</li>
+<li>Intelligent responses based on the most relevant context</li>
+</ul>
+<p><strong>All answers are grounded in your enterprise data, ensuring accuracy and compliance.</strong></p>
+<h2 id="advanced-features">Advanced Features</h2>
+<p><img alt="Advanced Features" src="../extra_rag_studio_docs/images/advanced-features.png" /></p>
+<p>RAG Studio goes beyond basic chat with powerful features:</p>
+<h3 id="semantic-visualization">Semantic Visualization</h3>
+<ul>
+<li><strong>3D Chunk Vector Projection</strong>: Visualize the semantic distance between chunks to understand how your data is organized in vector space</li>
+<li>Helps identify gaps or redundancies in your knowledge base</li>
+</ul>
+<h3 id="automated-quality-alerts">Automated Quality Alerts</h3>
+<ul>
+<li><strong>Relevance scoring</strong>: Automatically evaluates if retrieved documents match the question</li>
+<li><strong>Faithfulness scoring</strong>: Checks if the generated answer is supported by source documents</li>
+<li>Powered by LLM-as-judge evaluation</li>
+</ul>
+<h3 id="question-rewriting">Question Rewriting</h3>
+<ul>
+<li><strong>Suggested Questions</strong>: Automatically generates related questions to help users explore topics</li>
+<li>Improves user experience by guiding them to relevant information faster</li>
+<li>Helps users refine vague queries into specific questions</li>
+</ul>
+<h2 id="hitl-and-monitoring">HITL and Monitoring</h2>
+<p><img alt="Monitoring Metrics" src="../extra_rag_studio_docs/images/monitoring-metrics.png" /></p>
+<p>Built-in Human-in-the-Loop (HITL) and monitoring capabilities include:</p>
+<h3 id="automated-logging">Automated Logging</h3>
+<ul>
+<li>Faithfulness scores (LLM-as-judge evaluation)</li>
+<li>Relevance scores (measures retrieval quality)</li>
+<li><code>max_score</code> - highest confidence score</li>
+<li><code>source_nodes_count</code> - number of documents retrieved</li>
+<li>Response latency and token usage</li>
+</ul>
+<h3 id="user-feedback">User Feedback</h3>
+<ul>
+<li>Collect subjective ratings with thumbs up/down</li>
+<li>Track user satisfaction over time</li>
+<li>Identify problematic queries or low-quality responses</li>
+</ul>
+<h3 id="visualization">Visualization</h3>
+<ul>
+<li>View metrics directly in RAG Studio</li>
+<li>Export to monitoring AMP (Cloudera's Applied ML Prototypes)</li>
+<li>Create custom charts and dashboards for your team</li>
+</ul>
+<h2 id="why-rag-studio">Why RAG Studio?</h2>
+<h3 id="flexible">Flexible</h3>
+<p><img alt="Why RAG Studio - Flexible and Fast" src="../extra_rag_studio_docs/images/why-flexible-fast.png" /></p>
+<p><strong>Any document, any user</strong></p>
+<ul>
+<li>Powered by IBM's Docling, RAG Studio ingests images, PDFs, and most file types with sophisticated preprocessing</li>
+<li>Customize your entire document parsing pipeline with the Cloudera Platform → DIM → RAGStudio integration</li>
+<li>Built by ML Teams, Usable by Enterprises</li>
+</ul>
+<h3 id="fast">Fast</h3>
+<p><strong>Prototype or Hack</strong></p>
+<ul>
+<li>Non-technical team members can DIY a chatbot for any use case they can think of</li>
+<li>Machine learning teams with crowded backlogs can quickly prototype and iterate</li>
+<li>Try different models and chunking settings code-free</li>
+</ul>
+<h3 id="smart">Smart</h3>
+<p><img alt="Why RAG Studio - Smart and Custom" src="../extra_rag_studio_docs/images/why-smart-custom.png" /></p>
+<p><strong>HyDE? O-RAG?</strong></p>
+<ul>
+<li>Built with bleeding-edge innovations such as metadata-augmented RAG</li>
+<li>Your enterprise chatbots get better as research evolves</li>
+<li>Implements modern techniques that improve retrieval accuracy</li>
+</ul>
+<h3 id="custom">Custom</h3>
+<p><strong>Your Models, Your DBs</strong></p>
+<ul>
+<li>Connect with your AI provider of choice or power with custom models for any task in the pipeline</li>
+<li>Served with CAII (Cloudera AI Inference)</li>
+<li>Full control over model selection and deployment</li>
+</ul>
+<h2 id="advanced-rag-techniques">Advanced RAG Techniques</h2>
+<p>In the rapidly shifting landscape of 2026, enterprise RAG (Retrieval-Augmented Generation) has moved far beyond simple vector search. Techniques like HyDE, O-RAG, and Metadata Augmented RAG are the "bleeding edge" tools that turn standard chatbots into high-precision knowledge engines. Here is how these techniques specifically improve retrieval accuracy.</p>
+<h3 id="1-metadata-augmented-rag-the-contextual-filter">1. Metadata Augmented RAG: The "Contextual Filter"</h3>
+<p>Standard RAG often retrieves a relevant-looking text chunk that lacks the necessary context to be useful (e.g., a "Page 4" chunk that refers to "the project" without naming which project).</p>
+<p><strong>How it improves accuracy:</strong></p>
+<ul>
+<li>
+<p><strong>Precision Filtering</strong>: By tagging chunks with metadata like Document Type, Security Clearance, Effective Date, and Product Version, the system can pre-filter the search space. This prevents a 2024 policy from overriding a 2026 update.</p>
+</li>
+<li>
+<p><strong>Contextual Nuggets</strong>: Modern systems use LLMs to "enrich" chunks with metadata before indexing. A chunk of text might have a hidden metadata field that summarizes the entire document it came from, giving the retriever "global" awareness while looking at "local" text.</p>
+</li>
+<li>
+<p><strong>Self-Improving Loops</strong>: As research evolves, new metadata fields (like "Factuality Score" or "User Satisfaction") are added to existing data, allowing the chatbot to prioritize chunks that have historically led to successful answers.</p>
+</li>
+</ul>
+<h3 id="2-o-rag-ontologicalontology-grounded-rag">2. O-RAG (Ontological/Ontology-Grounded RAG)</h3>
+<p>O-RAG addresses the "Understanding Gap." While vectors understand that "car" is similar to "vehicle," they don't inherently understand the hierarchical relationship between "Engine Component" and "Maintenance Protocol."</p>
+<p><strong>How it improves accuracy:</strong></p>
+<ul>
+<li>
+<p><strong>Conceptual Clarity</strong>: O-RAG (often implemented as RAO-OR) uses a domain-specific Ontology (a map of concepts). It ensures that when a user asks about a "Tier 1 Incident," the retriever knows to pull documents specifically related to that legal or technical definition, not just any document containing the word "Tier."</p>
+</li>
+<li>
+<p><strong>Relationship Mapping</strong>: Instead of just finding similar text, O-RAG can perform Multi-hop Reasoning. If you ask "How does the new regulation affect our shipping in Asia?", O-RAG follows the "Ontological Path" from Regulation → Geography → Logistics to gather a complete picture.</p>
+</li>
+</ul>
+<h3 id="3-hyde-hypothetical-document-embeddings">3. HyDE (Hypothetical Document Embeddings)</h3>
+<p>HyDE solves Query-Document Asymmetry. Users often ask short, vague questions, while documents contain long, technical answers. These "look" different to a computer.</p>
+<p><strong>How it improves accuracy:</strong></p>
+<ul>
+<li>
+<p><strong>The "Hallucination" Magnet</strong>: HyDE asks an LLM to "imagine" what a perfect answer would look like. This hypothetical answer contains the technical jargon and sentence structure that exists in your real documents.</p>
+</li>
+<li>
+<p><strong>Alignment</strong>: By searching for a document using another hypothetical document (instead of a question), you significantly increase the mathematical similarity (cosine similarity) between your search query and the target data.</p>
+</li>
+</ul>
+<hr />
+<h2 id="technical-architecture">Technical Architecture</h2>
+<p>This section describes the technical architecture and flow of RAG Studio's chat system.</p>
+<h3 id="chat-flow-sequence">Chat Flow Sequence</h3>
+<p>The following diagram illustrates the complete chat flow from user query to response generation:</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant User
+    participant UI as Frontend UI
+    participant API as LLM Service API
+    participant MetadataApi as Metadata API
+    participant ChatService as Chat Service
+    participant Querier as Querier
+    participant FlexibleContextChatEngine as Chat Engine
+    participant Reranking as Reranking Service
+    participant SimpleReranker as Simple Reranker
+    participant LLM as LLM Service
+    participant ChatHistory as Chat History Manager
+    participant MLflow as MLflow
+
+    User-&gt;&gt;UI: Enters query
+    UI-&gt;&gt;API: POST /sessions/{session_id}/stream-completion
+    Note over UI,API: Request includes query and configuration
+
+    API-&gt;&gt;MetadataApi: GET session metadata
+    API-&gt;&gt;ChatService: v2_chat(session, query, configuration, user_name)
+
+    alt exclude_knowledge_base or no data sources
+        ChatService-&gt;&gt;LLM: direct_llm_chat(session, query, user_name)
+        LLM-&gt;&gt;LLM: completion(session.id, query, session.inference_model)
+        LLM--&gt;&gt;ChatService: chat_response
+        ChatService-&gt;&gt;ChatHistory: append_to_history(session.id, [new_chat_message])
+        ChatService--&gt;&gt;API: new_chat_message
+    else has data sources
+        ChatService-&gt;&gt;ChatService: _run_chat(session, response_id, query, query_configuration, user_name)
+        Note over ChatService: _run_chat extracts data_source_id from session
+        ChatService-&gt;&gt;Querier: query(data_source_id, query, query_configuration, chat_history)
+        Note over Querier: query creates vector store, embedding model, and index
+        Querier-&gt;&gt;Querier: _create_retriever(configuration, embedding_model, index, data_source_id, llm)
+        Querier-&gt;&gt;Querier: _build_flexible_chat_engine(configuration, llm, retriever, data_source_id)
+
+        alt use_question_condensing enabled
+            Querier-&gt;&gt;FlexibleContextChatEngine: condense_question(chat_messages, query_str)
+            FlexibleContextChatEngine--&gt;&gt;Querier: condensed_question
+        end
+
+        alt use_hyde enabled
+            Querier-&gt;&gt;FlexibleContextChatEngine: _run_c3(message, chat_history)
+            FlexibleContextChatEngine-&gt;&gt;LLM: hypothetical(vector_match_input, configuration)
+            LLM--&gt;&gt;FlexibleContextChatEngine: hypothetical_document
+            FlexibleContextChatEngine-&gt;&gt;FlexibleContextChatEngine: _get_nodes(hypothetical_document)
+        else use_hyde disabled
+            Querier-&gt;&gt;FlexibleContextChatEngine: _run_c3(message, chat_history)
+            FlexibleContextChatEngine-&gt;&gt;FlexibleContextChatEngine: _get_nodes(vector_match_input)
+        end
+
+        alt rerank_model_name specified
+            Querier-&gt;&gt;Querier: _create_node_postprocessors(configuration, data_source_id, llm)
+            Querier-&gt;&gt;Reranking: get(model_name=configuration.rerank_model_name, top_n=configuration.top_k)
+            Reranking--&gt;&gt;Querier: reranker
+            Querier-&gt;&gt;FlexibleContextChatEngine: chat(query_str, chat_messages)
+            FlexibleContextChatEngine-&gt;&gt;Reranking: postprocess_nodes(nodes)
+            Reranking--&gt;&gt;FlexibleContextChatEngine: reranked_nodes
+        else no reranking
+            Querier-&gt;&gt;FlexibleContextChatEngine: chat(query_str, chat_messages)
+            FlexibleContextChatEngine-&gt;&gt;SimpleReranker: postprocess_nodes(nodes)
+            SimpleReranker--&gt;&gt;FlexibleContextChatEngine: sorted_nodes
+        end
+
+        FlexibleContextChatEngine--&gt;&gt;Querier: chat_response
+        Querier--&gt;&gt;ChatService: response, condensed_question
+        ChatService-&gt;&gt;ChatService: evaluate_response(query, response, session.inference_model)
+        ChatService-&gt;&gt;ChatService: format_source_nodes(response, data_source_id)
+        ChatService-&gt;&gt;MLflow: record_rag_mlflow_run(new_chat_message, query_configuration, response_id, session, user_name)
+        ChatService-&gt;&gt;ChatHistory: append_to_history(session.id, [new_chat_message])
+        ChatService--&gt;&gt;API: new_chat_message
+    end
+
+    API--&gt;&gt;UI: ChatMessageType response
+    UI-&gt;&gt;UI: Update chat history with response
+    UI--&gt;&gt;User: Display response
+</code></pre>
+<hr />
+<h2 id="changelog">Changelog</h2>
+<h3 id="rag-studio-changelog-release1">RAG Studio Changelog (release/1)</h3>
+<p>This changelog summarizes notable changes per tagged release from 1.0.0 through 1.31.0 on the release/1 branch.</p>
+<h4 id="recent-releases">Recent Releases</h4>
+<h5 id="1310">1.31.0</h5>
+<ul>
+<li>Added Excel (.xlsx) file support for document ingestion</li>
+<li>Enhanced indexing performance for tabular documents (CSV, Excel)</li>
+<li>Updated dependencies and internal improvements</li>
+</ul>
+<h5 id="1300">1.30.0</h5>
+<ul>
+<li>Added ChromaDB support</li>
+<li>Multi-slide <code>.pptx</code> files are now fully ingested instead of just the first slide</li>
+</ul>
+<h5 id="1290">1.29.0</h5>
+<ul>
+<li>Added <code>TEXT_TO_TEXT_GENERATION</code> model support as inference models</li>
+<li>Cleaned up model provider detection and environment handling</li>
+<li>Deprecated <code>/chat</code> endpoint in favor of <code>/stream-completion</code></li>
+</ul>
+<h5 id="1281">1.28.1</h5>
+<ul>
+<li>Emergency fixes and enhancements</li>
+<li>Pinned OpenSearch versions and added UI note; improved validation</li>
+</ul>
+<h5 id="1280">1.28.0</h5>
+<ul>
+<li>Implemented download file link in UI</li>
+<li>Updated dependencies and added GPT-5 to OpenAI models</li>
+<li>Removed unused describeEndpoint fields</li>
+</ul>
+<h5 id="1270">1.27.0</h5>
+<ul>
+<li>Aggregate maintenance updates (Mob/main)</li>
+</ul>
+<h5 id="1260">1.26.0</h5>
+<ul>
+<li>Added script to restore the global summary index</li>
+<li>Improved CAII model discovery and pre-release fixes</li>
+</ul>
+<h5 id="1250">1.25.0</h5>
+<ul>
+<li>Chat UI improvements</li>
+<li>Miscellaneous dependency updates and stability tweaks</li>
+</ul>
+<h5 id="1241">1.24.1</h5>
+<ul>
+<li>Fixed handling of empty knowledge base in chat flows</li>
+</ul>
+<h5 id="1240">1.24.0</h5>
+<ul>
+<li>Added ability to upload files directly to a chat session</li>
+<li>Reverted MLflow to 2.x and corrected run UUID key</li>
+</ul>
+<h5 id="1230">1.23.0</h5>
+<ul>
+<li>Replaced crew with custom Tool Calling implementation</li>
+<li>Streaming chat cleanup and in-process Docling</li>
+<li>Saved artifacts in repository instead of release assets</li>
+<li>Added fake-streaming for non-streaming tool models; enabled tool calling by default for subset</li>
+<li>New Tools Manager UI</li>
+</ul>
+<h5 id="1222">1.22.2</h5>
+<ul>
+<li>Hotfixes and dependency bumps</li>
+</ul>
+<h5 id="1221">1.22.1</h5>
+<ul>
+<li>Fixed: Kill startup script if Python fails to start</li>
+</ul>
+<h5 id="1220">1.22.0</h5>
+<ul>
+<li>Added OpenSearch (Cloudera Semantic Search) vector database support</li>
+<li>Added multi-knowledge base support in sessions</li>
+<li>Allowed canceling in-flight chat requests from UI</li>
+<li>Made data source IDs optional on create session; filtered unsupported Bedrock models</li>
+</ul>
+<h5 id="1210">1.21.0</h5>
+<ul>
+<li>Added Tool Calling feature (initial release)</li>
+</ul>
+<h5 id="1200">1.20.0</h5>
+<ul>
+<li>Added OpenAI support and model provider</li>
+<li>Cross-config fixes and base URL tweaks</li>
+</ul>
+<h5 id="1190">1.19.0</h5>
+<ul>
+<li>Allowed providing a CDP token for CAII access</li>
+</ul>
+<h5 id="1180">1.18.0</h5>
+<ul>
+<li>Added streaming responses in chat; copy-to-clipboard for answers</li>
+<li>Fixed config update logic and type fallbacks</li>
+<li>Removed Qdrant as a separate app; returned to single-app mode</li>
+</ul>
+<h4 id="earlier-releases">Earlier Releases</h4>
+<p>For a complete list of all releases from 1.0.0 through 1.17.0, including detailed changes for Analytics, CAII integration, model provider support, and foundational features, please refer to the full changelog in the repository.</p>
+<p>Key historical milestones include:</p>
+<ul>
+<li><strong>1.17.0</strong>: Release version display, service URL handling improvements</li>
+<li><strong>1.16.0</strong>: Qdrant support, S3 summary storage</li>
+<li><strong>1.15.0</strong>: Analytics with Project ID filtering</li>
+<li><strong>1.14.0</strong>: Combined Java/Python Swagger</li>
+<li><strong>1.13.0</strong>: Pre-release polish</li>
+<li><strong>1.12.0</strong>: KB-free chat sessions, Projects foundation</li>
+<li><strong>1.11.0</strong>: CAII NVIDIA model preference</li>
+<li><strong>1.10.0</strong>: Azure model provider, Bedrock ARN support</li>
+<li><strong>1.9.0</strong>: Analytics and metrics dashboards</li>
+<li><strong>1.8.0</strong>: CAII DeepSeek support, HyDE session options</li>
+<li><strong>1.7.0</strong>: Reranking end-to-end</li>
+<li><strong>1.6.0</strong>: Composability features</li>
+<li><strong>1.5.0</strong>: Markdown responses, image handling</li>
+<li><strong>1.4.0</strong>: CAII endpoint discovery, multiple embeddings</li>
+<li><strong>1.3.0</strong>: CSV/JSON parsing, Docling PDF support</li>
+<li><strong>1.2.0</strong>: Indexing service abstraction</li>
+<li><strong>1.1.0</strong>: UI and backend refinements</li>
+<li><strong>1.0.0</strong>: Initial GA release</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>RAG Studio provides a comprehensive platform for building production-ready chatbots on enterprise data. With its user-friendly interface, advanced features, and support for cutting-edge RAG techniques, it empowers both technical and non-technical users to create intelligent, context-aware AI applications.</p>
+<p>Whether you're prototyping a new use case or deploying at enterprise scale, RAG Studio offers the flexibility, speed, and intelligence needed for modern AI applications.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
