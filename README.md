@@ -4,12 +4,22 @@ This repository hosts the documentation site for RAG & Agent Studios, built with
 
 ## Quick Start
 
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/FerdinandZhong/RAG_Agent_Studio_Docs.git
+cd RAG_Agent_Studio_Docs
+```
+
+### 2. Create Virtual Environment
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
-3. Install dependencies:
+### 3. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
